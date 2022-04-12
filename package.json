@@ -1,0 +1,24 @@
+{
+  "name": "202204-w2ch2-albert-sagol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TryoSag/202204-W2CH2-albert-sagol.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TryoSag/202204-W2CH2-albert-sagol/issues"
+  },
+  "homepage": "https://github.com/TryoSag/202204-W2CH2-albert-sagol#readme",
+  "devDependencies": {
+    "husky": "^7.0.0"
+  }
+}
