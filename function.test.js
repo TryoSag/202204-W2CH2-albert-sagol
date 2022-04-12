@@ -1,22 +1,27 @@
+const { number } = require("yargs");
+
 const strictEquals = (a, b) => {
-  if (Object.is(a, NaN) && Object.is(b, NaN)) {
+  if (Number.isNaN(a) && Number.isNaN(b)) {
     return false;
-  } else if (Object.is(a, 0) && Object.is(b, -0)) {
-    return true;
-  } else if (Object.is(a, -0) && Object.is(b, 0)) {
-    return true;
-  } else {
-    return Object.is(a, b);
   }
+  if (Object.is(a, 0) && Object.is(b, -0)) {
+    return true;
+  }
+  if (Object.is(a, -0) && Object.is(b, 0)) {
+    return true;
+  }
+
+  return Object.is(a, b);
 };
 
 describe("Given a strictEquals (a, b)", () => {
   describe("When it recives (1, 1)", () => {
     test("Then it should return true", () => {
-      const numberToTest = (1, 1);
+      const numberToTestOnA = 1;
+      const numberToTestOnB = 1;
       const expectedResult = true;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -24,10 +29,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives (NaN, NaN)", () => {
     test("Then it should return false", () => {
-      const numberToTest = (NaN, NaN);
+      const numberToTestOnA = NaN;
+      const numberToTestOnB = NaN;
       const expectedResult = false;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -35,10 +41,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives (0, -0)", () => {
     test("Then it should return true", () => {
-      const numberToTest = (0, -0);
+      const numberToTestOnA = 0;
+      const numberToTestOnB = -0;
       const expectedResult = true;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -46,10 +53,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives (-0, 0)", () => {
     test("Then it should return true", () => {
-      const numberToTest = (-0, 0);
+      const numberToTestOnA = -0;
+      const numberToTestOnB = 0;
       const expectedResult = true;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -57,10 +65,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives (1, '1')", () => {
     test("Then it should return false", () => {
-      const numberToTest = (1, "1");
+      const numberToTestOnA = 1;
+      const numberToTestOnB = "1";
       const expectedResult = false;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -68,10 +77,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives (true, false)", () => {
     test("Then it should return false", () => {
-      const numberToTest = (true, false);
+      const numberToTestOnA = true;
+      const numberToTestOnB = false;
       const expectedResult = false;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -79,10 +89,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives (false, false)", () => {
     test("Then it should return true", () => {
-      const numberToTest = (false, false);
+      const numberToTestOnA = false;
+      const numberToTestOnB = false;
       const expectedResult = true;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
@@ -90,10 +101,11 @@ describe("Given a strictEquals (a, b)", () => {
 
   describe("When it recives ('Water', 'oil')", () => {
     test("Then it should return false", () => {
-      const numberToTest = ("Water", "oil");
+      const numberToTestOnA = "Water";
+      const numberToTestOnB = "oil";
       const expectedResult = false;
 
-      const resultOfTest = strictEquals(numberToTest);
+      const resultOfTest = strictEquals(numberToTestOnA, numberToTestOnB);
 
       expect(resultOfTest).toBe(expectedResult);
     });
