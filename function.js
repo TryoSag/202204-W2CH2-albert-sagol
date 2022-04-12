@@ -9,3 +9,4 @@ const strictEquals = (a, b) => {
     return Object.is(a, b);
   }
 };
+// test command npx jest —watch
