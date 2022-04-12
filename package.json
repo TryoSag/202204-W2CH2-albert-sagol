@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/TryoSag/202204-W2CH2-albert-sagol#readme",
   "devDependencies": {
-    "husky": "^7.0.0"
+    "@types/jest": "^27.4.1",
+    "husky": "^7.0.0",
+    "jest": "^27.5.1"
   }
 }
